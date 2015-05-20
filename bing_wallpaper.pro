@@ -24,7 +24,10 @@ DISTFILES += \
 	qml/main.qml \
 	qml/BWMenuBar.qml \
     qml/BWToolBar.qml \
-    qml/BWStatusBar.qml
+    qml/BWStatusBar.qml \
+    qml/BWPanel.qml \
+    qml/BWCountrySelect.qml \
+    qml/BWCalendar.qml
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
