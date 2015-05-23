@@ -1,5 +1,5 @@
-/// @file BWStatusBar.qml
-/// @brief Application's status bar
+/// @file main.qml
+/// @brief Application's window.
 /// @author Romain Ducher
 ///
 /// @section LICENSE
@@ -24,8 +24,17 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.3
 
-StatusBar {
-	id: bwStatusBar
+ApplicationWindow {
+	title: qsTr("Bing Wallpaper")
+	visible: true
 
-	// TODO
+	menuBar: BWMenuBar {}
+
+	toolBar: BWToolBar {}
+
+	statusBar: BWStatusBar {}
+
+	BWPanel {
+		anchors.fill: parent
+	}
 }

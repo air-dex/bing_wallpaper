@@ -1,10 +1,12 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
+<RCC>
 	<qresource prefix="/">
 		<file>qml/main.qml</file>
-		<file>qml/MainForm.ui.qml</file>
 		<file>qml/BWMenuBar.qml</file>
 		<file>qml/BWToolBar.qml</file>
 		<file>qml/BWStatusBar.qml</file>
+		<file>qml/BWCalendar.qml</file>
+		<file>qml/BWPanel.qml</file>
+		<file>qml/BWCountrySelect.qml</file>
+		<file>qml/BingWallpaper.qml</file>
 	</qresource>
 </RCC>

@@ -27,7 +27,8 @@ DISTFILES += \
     qml/BWStatusBar.qml \
     qml/BWPanel.qml \
     qml/BWCountrySelect.qml \
-    qml/BWCalendar.qml
+    qml/BWCalendar.qml \
+    qml/BingWallpaper.qml
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
