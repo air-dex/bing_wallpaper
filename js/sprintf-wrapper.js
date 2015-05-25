@@ -1,5 +1,5 @@
-/// @file main.qml
-/// @brief Application's window.
+/// @file sprintf-wrapper.js
+/// @brief QML Wrapper for The JavaScript library <a href="https://github.com/alexei/sprintf.js">sprintf.js</a>
 /// @author Romain Ducher
 ///
 /// @section LICENSE
@@ -21,22 +21,7 @@
 /// You should have received a copy of the GNU Lesser General Public License
 /// along with Bing Wallpaper. If not, see <http://www.gnu.org/licenses/>.
 
-import QtQuick 2.4
-import QtQuick.Controls 1.3
-
-ApplicationWindow {
-	id: bing_wallpaper
-	title: qsTr("Bing Wallpaper")
-	visible: true
-
-	menuBar: BWMenuBar {}
-
-	toolBar: BWToolBar {}
-
-	statusBar: BWStatusBar {}
-
-	BWPanel {
-		id: panel
-		anchors.fill: parent
-	}
-}
+var window = {};
+Qt.include("qrc:/jslib-sprintf.js");
+var sprintf = window.sprintf;
+var vsprintf = window.vsprintf;

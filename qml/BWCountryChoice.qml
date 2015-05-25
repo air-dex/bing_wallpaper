@@ -1,5 +1,5 @@
-/// @file main.qml
-/// @brief Application's window.
+/// @file BWCountryChoice.qml
+/// @brief Country choice for Bing images
 /// @author Romain Ducher
 ///
 /// @section LICENSE
@@ -24,19 +24,33 @@
 import QtQuick 2.4
 import QtQuick.Controls 1.3
 
-ApplicationWindow {
-	id: bing_wallpaper
-	title: qsTr("Bing Wallpaper")
-	visible: true
+/// @class BWCountryChoice
+/// @brief Component to choice a country. It is a radio button whose legend is
+/// the flag of the chosen country if the button is checked.
+Row {
+	id: bwCountryChoice
 
-	menuBar: BWMenuBar {}
+	/// @brief ExclusiveGroup for the radio Button
+	/// @see http://doc.qt.io/qt-5/qml-qtquick-controls-radiobutton.html#exclusiveGroup-prop
+	property alias exclusiveGroup: choice.exclusiveGroup
 
-	toolBar: BWToolBar {}
+	/// @brief Country code
+	/// @see BWCountryFlag.country_code
+	property string country_code
 
-	statusBar: BWStatusBar {}
+	// Radio button
+	RadioButton {
+		id: choice
+		anchors.verticalCenter: choice_flag.verticalCenter
 
-	BWPanel {
-		id: panel
-		anchors.fill: parent
+		/// @brief Button value
+		property alias country_code: bwCountryChoice.country_code
+	}
+
+	// Flag label
+	BWCountryFlag {
+		id: choice_flag
+		height: bwCountryChoice.height
+		country_code: bwCountryChoice.country_code
 	}
 }

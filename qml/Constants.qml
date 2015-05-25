@@ -1,5 +1,5 @@
-/// @file main.qml
-/// @brief Application's window.
+/// @file Constants.qml
+/// @brief Some constants in the QML side of the application.
 /// @author Romain Ducher
 ///
 /// @section LICENSE
@@ -22,21 +22,8 @@
 /// along with Bing Wallpaper. If not, see <http://www.gnu.org/licenses/>.
 
 import QtQuick 2.4
-import QtQuick.Controls 1.3
 
-ApplicationWindow {
-	id: bing_wallpaper
-	title: qsTr("Bing Wallpaper")
-	visible: true
-
-	menuBar: BWMenuBar {}
-
-	toolBar: BWToolBar {}
-
-	statusBar: BWStatusBar {}
-
-	BWPanel {
-		id: panel
-		anchors.fill: parent
-	}
+QtObject {
+	/// @brief Default spacing for objects
+	property int default_spacing: 5
 }

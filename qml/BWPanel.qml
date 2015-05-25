@@ -22,28 +22,31 @@
 /// along with Bing Wallpaper. If not, see <http://www.gnu.org/licenses/>.
 
 import QtQuick 2.4
+import QtQuick.Layouts 1.1
 
-Rectangle {
-	width: 100
-	height: 62
+Column {
+	id: bwPanel
+	spacing: 0
 
 	BWCountrySelect {
 		id: countrySelect
 
+		height: bwPanel.height / 4
+
 		anchors {
-			top: parent.top
-			left: parent.left
-			right: parent.right
+			left: bwPanel.left
+			right: bwPanel.right
 		}
 	}
 
 	BWCalendar {
 		id: calendar
 
+		height: bwPanel.height / 2
+
 		anchors {
-			bottom: parent.bottom
-			left: parent.left
-			right: parent.right
+			left: bwPanel.left
+			right: bwPanel.right
 		}
 	}
 }
