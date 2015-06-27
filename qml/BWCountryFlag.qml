@@ -33,7 +33,7 @@ Image {
 	/// @see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 	property string country_code
 
-	source: Sprintf.sprintf("qrc:/flag-%s.svg", bwCountryChoice.country_code)
+	source: Sprintf.sprintf("qrc:/flag-%s.svg", bwCountryFlag.country_code)
 	sourceSize.height: bwCountryFlag.height
 	fillMode: Image.PreserveAspectFit
 }

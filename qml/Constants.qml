@@ -26,4 +26,10 @@ import QtQuick 2.4
 QtObject {
 	/// @brief Default spacing for objects
 	property int default_spacing: 5
+
+	/// @brief Width for BWCountryChoices
+	property int country_choice_width: 75
+
+	/// @brief Allowed country selector height for a row
+	property int country_select_row_height: 40
 }

@@ -24,29 +24,30 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 
-Column {
+Item {
 	id: bwPanel
-	spacing: 0
+
+	Constants{ id: constants }
 
 	BWCountrySelect {
 		id: countrySelect
-
-		height: bwPanel.height / 4
+		width: bwPanel.width
+		height: constants.country_select_row_height * countrySelect.rows
 
 		anchors {
-			left: bwPanel.left
-			right: bwPanel.right
+			top: bwPanel.top
+			horizontalCenter: bwPanel.horizontalCenter
 		}
 	}
 
 	BWCalendar {
 		id: calendar
-
-		height: bwPanel.height / 2
+		width: bwPanel.width
+		height: bwPanel.height - countrySelect.height
 
 		anchors {
-			left: bwPanel.left
-			right: bwPanel.right
+			horizontalCenter: bwPanel.horizontalCenter
+			bottom: bwPanel.bottom
 		}
 	}
 }

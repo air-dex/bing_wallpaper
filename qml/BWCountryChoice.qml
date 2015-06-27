@@ -30,6 +30,8 @@ import QtQuick.Controls 1.3
 Row {
 	id: bwCountryChoice
 
+	width: constants.country_choice_width
+
 	/// @brief ExclusiveGroup for the radio Button
 	/// @see http://doc.qt.io/qt-5/qml-qtquick-controls-radiobutton.html#exclusiveGroup-prop
 	property alias exclusiveGroup: choice.exclusiveGroup
@@ -37,6 +39,8 @@ Row {
 	/// @brief Country code
 	/// @see BWCountryFlag.country_code
 	property string country_code
+
+	Constants { id: constants }
 
 	// Radio button
 	RadioButton {
@@ -50,6 +54,7 @@ Row {
 	// Flag label
 	BWCountryFlag {
 		id: choice_flag
+		width: bwCountryChoice.width - choice.width - constants.default_spacing
 		height: bwCountryChoice.height
 		country_code: bwCountryChoice.country_code
 	}

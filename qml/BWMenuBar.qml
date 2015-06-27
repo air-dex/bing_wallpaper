@@ -67,7 +67,7 @@ MenuBar {
 		MenuSeparator {}
 
 		MenuItem {
-			text: "Quitter"
+			text: qsTr("Quit")
 			shortcut: StandardKey.Quit
 			onTriggered: Qt.quit()
 		}

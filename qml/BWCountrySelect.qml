@@ -33,11 +33,18 @@ GroupBox {
 
 	Constants { id: constants }
 
+	property alias rows: country_grid.rows
+
 	Grid {
-		rows: 3
-		columns: 3
+		id: country_grid
+		rows: Math.ceil(9 / country_grid.columns)
+		columns: Math.floor(bwCountrySelect.width / constants.country_choice_width)
 		columnSpacing: constants.default_spacing
 		rowSpacing: constants.default_spacing
+
+		property int country_choice_width: constants.country_choice_width - constants.default_spacing
+
+		property int country_choice_height: bwCountrySelect.height / country_grid.rows - constants.default_spacing
 
 		// Radio buttons group
 		ExclusiveGroup { id: flagsGroup }
@@ -49,8 +56,8 @@ GroupBox {
 		// Australia
 		BWCountryChoice {
 			id: australia
-			width: bwCountrySelect.width / 3
-			height: bwCountrySelect.height / 3
+			width: country_grid.country_choice_width
+			height: country_grid.country_choice_height
 			exclusiveGroup: flagsGroup
 			country_code: "au"
 		}
@@ -58,8 +65,8 @@ GroupBox {
 		// Canada
 		BWCountryChoice {
 			id: canada
-			width: bwCountrySelect.width / 3
-			height: bwCountrySelect.height / 3
+			width: country_grid.country_choice_width
+			height: country_grid.country_choice_height
 			exclusiveGroup: flagsGroup
 			country_code: "ca"
 		}
@@ -67,8 +74,8 @@ GroupBox {
 		// China
 		BWCountryChoice {
 			id: china
-			width: bwCountrySelect.width / 3
-			height: bwCountrySelect.height / 3
+			width: country_grid.country_choice_width
+			height: country_grid.country_choice_height
 			exclusiveGroup: flagsGroup
 			country_code: "cn"
 		}
@@ -76,8 +83,8 @@ GroupBox {
 		// France
 		BWCountryChoice {
 			id: france
-			width: bwCountrySelect.width / 3
-			height: bwCountrySelect.height / 3
+			width: country_grid.country_choice_width
+			height: country_grid.country_choice_height
 			exclusiveGroup: flagsGroup
 			country_code: "fr"
 		}
@@ -85,8 +92,8 @@ GroupBox {
 		// Germany
 		BWCountryChoice {
 			id: germany
-			width: bwCountrySelect.width / 3
-			height: bwCountrySelect.height / 3
+			width: country_grid.country_choice_width
+			height: country_grid.country_choice_height
 			exclusiveGroup: flagsGroup
 			country_code: "de"
 		}
@@ -94,8 +101,8 @@ GroupBox {
 		// Japan
 		BWCountryChoice {
 			id: japan
-			width: bwCountrySelect.width / 3
-			height: bwCountrySelect.height / 3
+			width: country_grid.country_choice_width
+			height: country_grid.country_choice_height
 			exclusiveGroup: flagsGroup
 			country_code: "jp"
 		}
@@ -103,8 +110,8 @@ GroupBox {
 		// New Zealand
 		BWCountryChoice {
 			id: new_zealand
-			width: bwCountrySelect.width / 3
-			height: bwCountrySelect.height / 3
+			width: country_grid.country_choice_width
+			height: country_grid.country_choice_height
 			exclusiveGroup: flagsGroup
 			country_code: "nz"
 		}
@@ -112,8 +119,8 @@ GroupBox {
 		// United Kingdom
 		BWCountryChoice {
 			id: united_kingdom
-			width: bwCountrySelect.width / 3
-			height: bwCountrySelect.height / 3
+			width: country_grid.country_choice_width
+			height: country_grid.country_choice_height
 			exclusiveGroup: flagsGroup
 			country_code: "uk"
 		}
@@ -121,8 +128,8 @@ GroupBox {
 		// United States of America
 		BWCountryChoice {
 			id: united_states
-			width: bwCountrySelect.width / 3
-			height: bwCountrySelect.height / 3
+			width: country_grid.country_choice_width
+			height: country_grid.country_choice_height
 			exclusiveGroup: flagsGroup
 			country_code: "us"
 		}
