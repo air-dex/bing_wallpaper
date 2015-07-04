@@ -10,6 +10,7 @@
 		<file>qml/BingWallpaper.qml</file>
 		<file>qml/BWCountryChoice.qml</file>
 		<file>qml/BWCountryFlag.qml</file>
+		<file>qml/BWCalendarImage.qml</file>
 		<file>qml/Constants.qml</file>
 		<file alias="flag-au.svg">res/flags/Australia.svg</file>
 		<file alias="flag-ca.svg">res/flags/Canada.svg</file>

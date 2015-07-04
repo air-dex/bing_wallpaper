@@ -31,15 +31,14 @@ Item {
 
 	Constants { id: constants }
 
-	Image {
+	BWCalendarImage {
 		id: bing_image
 		width: bwCalendar.width
-		fillMode: Image.PreserveAspectFit
 
 		anchors {
 			top: bwCalendar.top
-			horizontalCenter: bwCalendar.horizontalCenter
 			bottom: calendar.top
+			horizontalCenter: bwCalendar.horizontalCenter
 		}
 	}
 

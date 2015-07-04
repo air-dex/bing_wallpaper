@@ -42,7 +42,8 @@ DISTFILES += \
 	qml/BingWallpaper.qml \
 	qml/BWCountryChoice.qml \
     qml/BWCountryFlag.qml \
-    qml/Constants.qml
+    qml/Constants.qml \
+    qml/BWCalendarImage.qml
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

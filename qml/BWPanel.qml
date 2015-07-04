@@ -43,7 +43,7 @@ Item {
 	BWCalendar {
 		id: calendar
 		width: bwPanel.width
-		height: bwPanel.height - countrySelect.height
+		height: bwPanel.height - countrySelect.height - 5 * constants.default_spacing
 
 		anchors {
 			horizontalCenter: bwPanel.horizontalCenter
