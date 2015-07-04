@@ -2,6 +2,8 @@
 #define ACTIONCONTROLLER_HPP
 
 #include <QObject>
+#include <QDateTime>
+#include <QString>
 
 class ActionController : public QObject
 {
@@ -16,7 +18,7 @@ class ActionController : public QObject
 
 		Q_INVOKABLE void setImageAsWallpaper();
 
-		Q_INVOKABLE void getImageMetaData();
+		Q_INVOKABLE void getImageMetaData(QDateTime date, QString countryCode);
 
 	signals:
 

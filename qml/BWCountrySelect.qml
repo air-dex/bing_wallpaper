@@ -35,6 +35,8 @@ GroupBox {
 
 	property alias rows: country_grid.rows
 
+	signal countryCodeChanged
+
 	Grid {
 		id: country_grid
 		rows: Math.ceil(9 / country_grid.columns)
@@ -47,7 +49,13 @@ GroupBox {
 		property int country_choice_height: bwCountrySelect.height / country_grid.rows - constants.default_spacing
 
 		// Radio buttons group
-		ExclusiveGroup { id: flagsGroup }
+		ExclusiveGroup {
+			id: flagsGroup
+
+			onCurrentChanged: {
+				bwCountrySelect.countryCodeChanged();
+			}
+		}
 
 		////////////////////
 		// Bing countries //

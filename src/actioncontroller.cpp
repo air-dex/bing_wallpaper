@@ -1,6 +1,7 @@
 #include "actioncontroller.hpp"
 #include <QtQml>
 #include "bingwallpaper.hpp"
+#include <cstdlib>
 
 ActionController::ActionController() : QObject() {}
 
@@ -21,6 +22,7 @@ void ActionController::setImageAsWallpaper() {
 	// TODO
 }
 
-void ActionController::getImageMetaData() {
+void ActionController::getImageMetaData(QDateTime date, QString countryCode) {
 	// TODO
+	qDebug() << "Country: " << countryCode << ", date: " << date.toString();
 }

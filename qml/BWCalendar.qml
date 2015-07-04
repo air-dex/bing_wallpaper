@@ -23,11 +23,12 @@
 
 import QtQuick 2.4
 import QtQuick.Controls 1.3
+import QtQml 2.2
 
 Item {
 	id: bwCalendar
 
-	// TODO
+	property date selectedDate: bwCalendar.removeTime(new Date())
 
 	Constants { id: constants }
 
@@ -50,6 +51,33 @@ Item {
 			bottom: bwCalendar.bottom
 			horizontalCenter: bwCalendar.horizontalCenter
 		}
+	}
+
+	Component.onCompleted: {
+		calendar.clicked.connect(bwCalendar.dateClicked);
+	}
+
+	function dateClicked(newCalDate) {
+		newCalDate = bwCalendar.removeTime(newCalDate);
+
+		if (newCalDate.getTime() !== bwCalendar.selectedDate.getTime() ) {
+			bwCalendar.selectedDate = newCalDate;
+		}
+	}
+
+	/**
+	 * @fn function removeTime(datetime);
+	 * @brief Removes the time in a date.
+	 * @param Date datetime The datetime
+	 * @return The datetime without its time (i.e. with a time set to midnight).
+	 */
+	function removeTime(datetime) {
+		datetime.setHours(0);
+		datetime.setMinutes(0);
+		datetime.setSeconds(0);
+		datetime.setMilliseconds(0);
+
+		return datetime;
 	}
 }
 

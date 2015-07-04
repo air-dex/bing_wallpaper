@@ -23,11 +23,14 @@
 
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
+import BWControls 0.1
 
 Item {
 	id: bwPanel
 
-	Constants{ id: constants }
+	Constants { id: constants }
+
+	ActionController { id: controller }
 
 	BWCountrySelect {
 		id: countrySelect
@@ -37,6 +40,10 @@ Item {
 		anchors {
 			top: bwPanel.top
 			horizontalCenter: bwPanel.horizontalCenter
+		}
+
+		onCountryCodeChanged: {
+			bwPanel.getImageMetaData();
 		}
 	}
 
@@ -49,6 +56,18 @@ Item {
 			horizontalCenter: bwPanel.horizontalCenter
 			bottom: bwPanel.bottom
 		}
+
+
+		onSelectedDateChanged: {
+			bwPanel.getImageMetaData();
+		}
+	}
+
+	function getImageMetaData() {
+		controller.getImageMetaData(
+			calendar.selectedDate,
+			countrySelect.getSelectedCountryCode()
+		);
 	}
 }
 
