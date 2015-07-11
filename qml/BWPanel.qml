@@ -30,7 +30,20 @@ Item {
 
 	Constants { id: constants }
 
-	ActionController { id: controller }
+	ActionController {
+		id: controller
+
+		onImageMetadataError: {
+			// TODO
+			console.log("Error : " + error);
+		}
+
+		onNoImageMetadata: console.log("No image for this date")	// TODO
+
+		onImageMetadataRetrieved: {
+			calendar.imageSource = "http://bing.com".concat(metadata.url);
+		}
+	}
 
 	BWCountrySelect {
 		id: countrySelect
@@ -57,17 +70,18 @@ Item {
 			bottom: bwPanel.bottom
 		}
 
-
 		onSelectedDateChanged: {
 			bwPanel.getImageMetaData();
 		}
 	}
 
 	function getImageMetaData() {
-		controller.getImageMetaData(
-			calendar.selectedDate,
-			countrySelect.getSelectedCountryCode()
-		);
+		if (countrySelect.getSelectedCountryCode() !== null) {
+			controller.getImageMetaData(
+				calendar.selectedDate,
+				countrySelect.getSelectedCountryCode()
+			);
+		}
 	}
 }
 

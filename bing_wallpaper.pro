@@ -21,6 +21,8 @@ RESOURCES += \
 
 DISTFILES += \
 	.gitignore \
+	README.md \
+	LICENSE \
 	res/flags/Australia.svg \
 	res/flags/Canada.svg \
 	res/flags/China.svg \
@@ -41,9 +43,9 @@ DISTFILES += \
 	qml/BWCalendar.qml \
 	qml/BingWallpaper.qml \
 	qml/BWCountryChoice.qml \
-    qml/BWCountryFlag.qml \
-    qml/Constants.qml \
-    qml/BWCalendarImage.qml
+	qml/BWCountryFlag.qml \
+	qml/Constants.qml \
+	qml/BWCalendarImage.qml
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

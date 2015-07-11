@@ -34,3 +34,18 @@ const int BingWallpaper::MINOR_VERSION = 1;
 // Reyn Tweets bugfix version.
 const int BingWallpaper::BUGFIX_VERSION = 0;
 
+// Network manager
+QNetworkAccessManager * BingWallpaper::NETWORK_MANAGER = NULL;
+
+// Root url to retrieve Bing images metadata.
+const QString BingWallpaper::ISS_BINGIMAGES_API_URL = "http://www.istartedsomething.com/bingimages/getimage.php";
+
+// Things to do after program's main execution
+void BingWallpaper::beforeBingWallpaper() {
+	NETWORK_MANAGER = new QNetworkAccessManager;
+}
+
+// Things to do after program's main execution
+void BingWallpaper::afterBingWallpaper() {
+	delete NETWORK_MANAGER;
+}

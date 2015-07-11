@@ -23,12 +23,12 @@
 
 import QtQuick 2.4
 import QtQuick.Controls 1.3
-import QtQml 2.2
 
 Item {
 	id: bwCalendar
 
 	property date selectedDate: bwCalendar.removeTime(new Date())
+	property alias imageSource: bing_image.imageSource
 
 	Constants { id: constants }
 

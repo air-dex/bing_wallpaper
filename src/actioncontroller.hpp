@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QDateTime>
 #include <QString>
+#include <QNetworkReply>
+#include <QJsonObject>
 
 class ActionController : public QObject
 {
@@ -21,8 +23,12 @@ class ActionController : public QObject
 		Q_INVOKABLE void getImageMetaData(QDateTime date, QString countryCode);
 
 	signals:
+		void imageMetadataError(QString error);
+		void noImageMetadata();
+		void imageMetadataRetrieved(QJsonObject metadata);
 
 	public slots:
+		void imageMetadataFetched(QNetworkReply * reply);
 };
 
 #endif // ACTIONCONTROLLER_HPP

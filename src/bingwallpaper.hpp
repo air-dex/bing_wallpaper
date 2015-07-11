@@ -25,6 +25,7 @@
 #define BINGWALLPAPER_HPP
 
 #include <QString>
+#include <QNetworkAccessManager>
 
 namespace BingWallpaper {
 	/// @brief Name of the QML library containing all the Bing Wallpaper C++
@@ -39,6 +40,20 @@ namespace BingWallpaper {
 
 	/// @brief Bing Wallpaper bugfix version.
 	extern const int BUGFIX_VERSION;
+
+	/// @brief Network manager
+	extern QNetworkAccessManager * NETWORK_MANAGER;
+
+	/// @brief Root url to retrieve Bing images metadata.
+	extern const QString ISS_BINGIMAGES_API_URL;
+
+	/// @fn void afterBingWallpaper();
+	/// @brief Things to do between QApplication creation and program execution.
+	void beforeBingWallpaper();
+
+	/// @fn void afterBingWallpaper();
+	/// @brief Things to do after program's main execution
+	void afterBingWallpaper();
 }
 
 #endif // BINGWALLPAPER_HPP
