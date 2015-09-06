@@ -8,8 +8,9 @@
 #include <QUrlQuery>
 
 QString ActionController::DATE_FORMAT = "yyyyMMdd";
+int ActionController::ONE_SECOND_TIMER = 1000;
 
-ActionController::ActionController() : QObject() {}
+ActionController::ActionController() : QObject(), timeoutTimerID(0) {}
 
 void ActionController::declareQML() {
 	// @uri BWControls
@@ -47,6 +48,9 @@ void ActionController::getImageMetaData(QDateTime date, QString countryCode) {
 	connect(BingWallpaper::NETWORK_MANAGER, &QNetworkAccessManager::finished,
 			this, &ActionController::imageMetadataFetched);
 	BingWallpaper::NETWORK_MANAGER->get(request);
+
+	// Starting the timeout timer
+	startTimeoutTimer();
 }
 
 void ActionController::imageMetadataFetched(QNetworkReply * reply) {
@@ -54,6 +58,7 @@ void ActionController::imageMetadataFetched(QNetworkReply * reply) {
 		return;
 	}
 
+	stopTimeoutTimer();
 	disconnect(BingWallpaper::NETWORK_MANAGER, &QNetworkAccessManager::finished,
 			   this, &ActionController::imageMetadataFetched);
 
@@ -107,4 +112,27 @@ void ActionController::imageMetadataFetched(QNetworkReply * reply) {
 				.append(parseErr.errorString());
 		emit imageMetadataError(errorMessage);
 	}
+}
+
+void ActionController::timerEvent(QTimerEvent * event) {
+	// No time
+	if (event == NULL) {
+		return;
+	}
+
+	int timerID = event->timerId();
+
+	if (timerID == timeoutTimerID) {
+		stopTimeoutTimer();
+		emit imageMetadataError("Timeout reached for retrieving the image.");
+	}
+}
+
+void ActionController::startTimeoutTimer() {
+	timeoutTimerID = startTimer(5 * ActionController::ONE_SECOND_TIMER);
+}
+
+void ActionController::stopTimeoutTimer() {
+	killTimer(timeoutTimerID);	// No timeout
+	timeoutTimerID = 0;
 }

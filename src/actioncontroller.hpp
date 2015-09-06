@@ -32,6 +32,13 @@ class ActionController : public QObject
 
 	private:
 		static QString DATE_FORMAT;
+		static int ONE_SECOND_TIMER;
+
+		// Timeout timer management
+		int timeoutTimerID;
+		void startTimeoutTimer();
+		void stopTimeoutTimer();
+		void timerEvent(QTimerEvent * event);
 };
 
 #endif // ACTIONCONTROLLER_HPP
