@@ -30,7 +30,7 @@ class ActionController : public QObject
 	public slots:
 		void imageMetadataFetched(QNetworkReply * reply);
 
-	private:
+	protected:
 		static QString DATE_FORMAT;
 		static int ONE_SECOND_TIMER;
 

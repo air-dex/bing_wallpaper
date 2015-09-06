@@ -66,15 +66,22 @@ Item {
 		controller.imageMetadataError.connect(calendar.setErrorMessage);
 		controller.noImageMetadata.connect(calendar.setNoImage);
 		controller.imageMetadataRetrieved.connect(calendar.setImage);
+
+		// Binding for image loading related treatments
+		bwPanel.imageLoading.connect(calendar.imageLoading);
 	}
 
 	function getImageMetaData() {
 		if (countrySelect.getSelectedCountryCode() !== null) {
+			bwPanel.imageLoading();
 			controller.getImageMetaData(
 				calendar.selectedDate,
 				countrySelect.getSelectedCountryCode()
 			);
 		}
 	}
+
+	// Teloling that an image is loading
+	signal imageLoading
 }
 

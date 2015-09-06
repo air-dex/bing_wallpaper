@@ -91,5 +91,10 @@ Item {
 	function setImage(imageURL) {
 		bing_image.setImage(imageURL);
 	}
+
+	// Displays indicator for image loading
+	function imageLoading() {
+		bing_image.imageLoading();
+	}
 }
 
