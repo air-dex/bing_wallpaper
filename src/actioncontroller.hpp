@@ -24,11 +24,14 @@ class ActionController : public QObject
 
 	signals:
 		void imageMetadataError(QString error);
-		void noImageMetadata();
+		void noImageMetadata(QDateTime noImageDate);
 		void imageMetadataRetrieved(QJsonObject metadata);
 
 	public slots:
 		void imageMetadataFetched(QNetworkReply * reply);
+
+	private:
+		static QString DATE_FORMAT;
 };
 
 #endif // ACTIONCONTROLLER_HPP

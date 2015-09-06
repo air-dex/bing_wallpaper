@@ -79,5 +79,17 @@ Item {
 
 		return datetime;
 	}
+
+	function setErrorMessage(errMsg) {
+		bing_image.setError(errMsg);
+	}
+
+	function setNoImage(noImagedate) {
+		bing_image.noImage(noImagedate);
+	}
+
+	function setImage(imageURL) {
+		bing_image.setImage(imageURL);
+	}
 }
 

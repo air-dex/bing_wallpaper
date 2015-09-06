@@ -30,20 +30,7 @@ Item {
 
 	Constants { id: constants }
 
-	ActionController {
-		id: controller
-
-		onImageMetadataError: {
-			// TODO
-			console.log("Error : " + error);
-		}
-
-		onNoImageMetadata: console.log("No image for this date")	// TODO
-
-		onImageMetadataRetrieved: {
-			calendar.imageSource = "http://bing.com".concat(metadata.url);
-		}
-	}
+	ActionController { id: controller }
 
 	BWCountrySelect {
 		id: countrySelect
@@ -73,6 +60,12 @@ Item {
 		onSelectedDateChanged: {
 			bwPanel.getImageMetaData();
 		}
+	}
+
+	Component.onCompleted: {
+		controller.imageMetadataError.connect(calendar.setErrorMessage);
+		controller.noImageMetadata.connect(calendar.setNoImage);
+		controller.imageMetadataRetrieved.connect(calendar.setImage);
 	}
 
 	function getImageMetaData() {

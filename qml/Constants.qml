@@ -32,4 +32,20 @@ QtObject {
 
 	/// @brief Allowed country selector height for a row
 	property int country_select_row_height: 40
+
+	property string fontName: "Ubuntu"
+
+	property int fontSize: 12
+
+	property string noImageBackgroundCalendarColor: "lemonchiffon"
+
+	property string noImageTextCalendarColor: "darkkhaki"
+
+	property string errorBackgroundCalendarColor: "darksalmon"
+
+	property string errorTextCalendarColor: "darkred"
+
+	property string defaultBackgroundCalendarColor: "white"
+
+	property string defaultTextCalendarColor: "black"
 }

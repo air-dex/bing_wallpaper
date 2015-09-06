@@ -7,6 +7,8 @@
 #include <QUrl>
 #include <QUrlQuery>
 
+QString ActionController::DATE_FORMAT = "yyyyMMdd";
+
 ActionController::ActionController() : QObject() {}
 
 void ActionController::declareQML() {
@@ -29,7 +31,7 @@ void ActionController::setImageAsWallpaper() {
 void ActionController::getImageMetaData(QDateTime date, QString countryCode) {
 	// TODO
 	QString imageID("");
-	imageID.append(date.toString("yyyyMMdd")).append("-").append(countryCode);
+	imageID.append(date.toString(ActionController::DATE_FORMAT)).append("-").append(countryCode);
 
 	// Building the URL
 	QUrl issURL(BingWallpaper::ISS_BINGIMAGES_API_URL);
@@ -69,7 +71,19 @@ void ActionController::imageMetadataFetched(QNetworkReply * reply) {
 	// Return if response is "false"
 	QByteArray rawResponse = reply->readAll();
 	if (rawResponse == "false") {
-		emit noImageMetadata();
+		QUrl apiURL = reply->request().url();
+
+		if (apiURL.hasQuery()) {
+			QUrlQuery query(apiURL.query());
+			QString imageID = query.queryItemValue("id");
+			QString dateStr = imageID.split("-")[0];
+			emit noImageMetadata(QDateTime::fromString(dateStr, ActionController::DATE_FORMAT));
+		}
+		else {
+			QString errorMessage("");
+			errorMessage.append("Unexpected URL call: ").append(apiURL.toString());
+			emit imageMetadataError(errorMessage);
+		}
 		return;
 	}
 
