@@ -1,7 +1,27 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
+<RCC>
 	<qresource prefix="/">
 		<file>qml/main.qml</file>
-		<file>qml/MainForm.ui.qml</file>
+		<file>qml/BWMenuBar.qml</file>
+		<file>qml/BWToolBar.qml</file>
+		<file>qml/BWStatusBar.qml</file>
+		<file>qml/BWCalendar.qml</file>
+		<file>qml/BWPanel.qml</file>
+		<file>qml/BWCountrySelect.qml</file>
+		<file>qml/BingWallpaper.qml</file>
+		<file>qml/BWCountryChoice.qml</file>
+		<file>qml/BWCountryFlag.qml</file>
+		<file>qml/BWCalendarImage.qml</file>
+		<file>qml/Constants.qml</file>
+		<file alias="flag-au.svg">res/flags/Australia.svg</file>
+		<file alias="flag-ca.svg">res/flags/Canada.svg</file>
+		<file alias="flag-cn.svg">res/flags/China.svg</file>
+		<file alias="flag-fr.svg">res/flags/France.svg</file>
+		<file alias="flag-de.svg">res/flags/Germany.svg</file>
+		<file alias="flag-jp.svg">res/flags/Japan.svg</file>
+		<file alias="flag-nz.svg">res/flags/New_Zealand.svg</file>
+		<file alias="flag-uk.svg">res/flags/United_Kingdom.svg</file>
+		<file alias="flag-us.svg">res/flags/United_States.svg</file>
+		<file alias="jslib-sprintf.js">js/sprintf.js</file>
+		<file alias="js-sprintf.js">js/sprintf-wrapper.js</file>
 	</qresource>
 </RCC>
