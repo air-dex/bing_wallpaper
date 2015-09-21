@@ -4,11 +4,15 @@ QT += qml quick widgets
 
 HEADERS += \
 	src/actioncontroller.hpp \
-	src/bingwallpaper.hpp
+	src/bingwallpaper.hpp \
+	src/wallpapermanager.hpp \
+	src/systemmanager.hpp
 
 SOURCES += src/main.cpp \
 	src/actioncontroller.cpp \
-	src/bingwallpaper.cpp
+	src/bingwallpaper.cpp \
+	src/wallpapermanager.cpp \
+	src/systemmanager.cpp
 
 # QML files
 qml_files.source = ui/qml
@@ -45,7 +49,32 @@ DISTFILES += \
 	qml/BWCountryChoice.qml \
 	qml/BWCountryFlag.qml \
 	qml/Constants.qml \
-	qml/BWCalendarImage.qml
+	qml/BWCalendarImage.qml \
+	src/windows/.gitkeep \
+	src/linux/.gitkeep
+
+# Plateform specific
+linux: {
+	HEADERS += \
+		src/linux/linuxwm.hpp \
+		src/linux/gnomewm.hpp
+
+	SOURCES += \
+		src/linux/linuxwm.cpp \
+		src/linux/gnomewm.cpp
+
+	QMAKE_CXXFLAGS += $$system(pkg-config gtkmm-3.0 --cflags)
+	LIBS += $$system(pkg-config gtkmm-3.0 --libs)
+
+	CONFIG += no_keywords
+	#QMAKE_CXXFLAGS += $$system(pkg-config gtk+-3.0 --cflags --libs)
+} else:win32 {
+	DISTFILES += \
+		src/linux/linuxwm.hpp \
+		src/linux/linuxwm.cpp \
+		src/linux/gnomewm.hpp \
+		src/linux/gnomewm.cpp \
+}
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

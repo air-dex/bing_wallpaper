@@ -22,13 +22,13 @@ class ActionController : public QObject
 
 		Q_INVOKABLE void getImageMetaData(QDateTime date, QString countryCode);
 
-	signals:
-		void imageMetadataError(QString error);
-		void noImageMetadata(QDateTime noImageDate);
-		void imageMetadataRetrieved(QJsonObject metadata);
+	//Q_SIGNALS:
+		Q_SIGNAL void imageMetadataError(QString error);
+		Q_SIGNAL void noImageMetadata(QDateTime noImageDate);
+		Q_SIGNAL void imageMetadataRetrieved(QJsonObject metadata);
 
-	public slots:
-		void imageMetadataFetched(QNetworkReply * reply);
+	//Q_SLOT:
+		Q_SLOT void imageMetadataFetched(QNetworkReply * reply);
 
 	protected:
 		static QString DATE_FORMAT;

@@ -69,7 +69,7 @@ void ActionController::imageMetadataFetched(QNetworkReply * reply) {
 				.append(reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt())
 				.append("(").append(reply->attribute(QNetworkRequest::HttpReasonPhraseAttribute).toString()).append(")")
 				.append(": ").append(reply->errorString());
-		emit imageMetadataError(errorMessage);
+		Q_EMIT imageMetadataError(errorMessage);
 		return;
 	}
 
@@ -82,12 +82,12 @@ void ActionController::imageMetadataFetched(QNetworkReply * reply) {
 			QUrlQuery query(apiURL.query());
 			QString imageID = query.queryItemValue("id");
 			QString dateStr = imageID.split("-")[0];
-			emit noImageMetadata(QDateTime::fromString(dateStr, ActionController::DATE_FORMAT));
+			Q_EMIT noImageMetadata(QDateTime::fromString(dateStr, ActionController::DATE_FORMAT));
 		}
 		else {
 			QString errorMessage("");
 			errorMessage.append("Unexpected URL call: ").append(apiURL.toString());
-			emit imageMetadataError(errorMessage);
+			Q_EMIT imageMetadataError(errorMessage);
 		}
 		return;
 	}
@@ -100,17 +100,17 @@ void ActionController::imageMetadataFetched(QNetworkReply * reply) {
 
 	if (parseErr.error == QJsonParseError::NoError) {
 		if (imageMetadata.isObject()) {
-			emit imageMetadataRetrieved(imageMetadata.object());
+			Q_EMIT imageMetadataRetrieved(imageMetadata.object());
 		}
 		else {
-			emit imageMetadataError("Image metadata should be JSON objects.");
+			Q_EMIT imageMetadataError("Image metadata should be JSON objects.");
 		}
 	}
 	else {
 		QString errorMessage("");
 		errorMessage.append("Problem while parsing image metadatas: ")
 				.append(parseErr.errorString());
-		emit imageMetadataError(errorMessage);
+		Q_EMIT imageMetadataError(errorMessage);
 	}
 }
 
@@ -124,7 +124,7 @@ void ActionController::timerEvent(QTimerEvent * event) {
 
 	if (timerID == timeoutTimerID) {
 		stopTimeoutTimer();
-		emit imageMetadataError("Timeout reached for retrieving the image.");
+		Q_EMIT imageMetadataError("Timeout reached for retrieving the image.");
 	}
 }
 
