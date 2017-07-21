@@ -30,7 +30,6 @@ void ActionController::setImageAsWallpaper() {
 }
 
 void ActionController::getImageMetaData(QDateTime date, QString countryCode) {
-	// TODO
 	QString imageID("");
 	imageID.append(date.toString(ActionController::DATE_FORMAT)).append("-").append(countryCode);
 

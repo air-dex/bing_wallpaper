@@ -9,16 +9,6 @@
 WallpaperManager::WallpaperManager() : QObject() {}
 
 WallpaperManager * WallpaperManager::getManager() {
-	// TODO
-
-	/*
-	 * if (windows) return WindowsWM()
-	 * else if (linux) {
-	 *  detectDesktopenvironment();
-	 *  return new LinuxWM()
-	 * }
-	 */
-
 	#ifdef GET_WM
 		GET_WM();
 	#else

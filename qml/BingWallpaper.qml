@@ -23,15 +23,20 @@
 
 import QtQuick 2.4
 import QtQuick.Controls 1.3
+import BWControls 0.1
 
 ApplicationWindow {
 	id: bing_wallpaper
 	title: qsTr("Bing Wallpaper")
 	visible: true
 
+	ActionController { id:controller }
+
 	menuBar: BWMenuBar {}
 
-	toolBar: BWToolBar {}
+	toolBar: BWToolBar {
+		controller: controller
+	}
 
 	statusBar: BWStatusBar {}
 

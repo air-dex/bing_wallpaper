@@ -29,7 +29,7 @@ import BWControls 0.1
 ToolBar {
 	id: bwToolBar
 
-	property ActionController controller: ActionController {}
+	property ActionController controller
 
 	RowLayout {
 		anchors.fill: parent
