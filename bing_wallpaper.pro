@@ -6,13 +6,18 @@ HEADERS += \
 	src/actioncontroller.hpp \
 	src/bingwallpaper.hpp \
 	src/wallpapermanager.hpp \
-	src/systemmanager.hpp
+	src/systemmanager.hpp \
+	src/wallpapermanagerbuilder.hpp \
+	src/systemmanagerbuilder.hpp
 
 SOURCES += src/main.cpp \
 	src/actioncontroller.cpp \
 	src/bingwallpaper.cpp \
 	src/wallpapermanager.cpp \
-	src/systemmanager.cpp
+	src/systemmanager.cpp \
+	src/wallpapermanagerbuilder.cpp \
+	src/systemmanagerbuilder.cpp
+
 
 # QML files
 qml_files.source = ui/qml
@@ -53,15 +58,32 @@ DISTFILES += \
 	src/windows/.gitkeep \
 	src/linux/.gitkeep
 
-# Plateform specific
-linux: {
-	HEADERS += \
-		src/linux/linuxwm.hpp \
-		src/linux/gnomewm.hpp
 
-	SOURCES += \
-		src/linux/linuxwm.cpp \
-		src/linux/gnomewm.cpp
+# Plateform specific
+
+# OS-related sources
+WINDOWS_HEADERS = \
+	src/windows/windowsmanager.hpp \
+	src/windows/windowswm.hpp
+
+WINDOWS_SOURCES = \
+	src/windows/windowsmanager.cpp \
+	src/windows/windowswm.cpp
+
+LINUX_HEADERS += \
+	src/linux/linuxwm.hpp \
+	src/linux/gnomewm.hpp
+
+LINUX_SOURCES += \
+	src/linux/linuxwm.cpp \
+	src/linux/gnomewm.cpp
+
+linux: {
+	HEADERS += $${LINUX_HEADERS}
+
+	SOURCES += $${LINUX_SOURCES}
+
+	DISTFILES += $${WINDOWS_HEADERS} $${WINDOWS_SOURCES}
 
 	QMAKE_CXXFLAGS += $$system(pkg-config gtkmm-3.0 --cflags)
 	LIBS += $$system(pkg-config gtkmm-3.0 --libs)
@@ -69,11 +91,11 @@ linux: {
 	CONFIG += no_keywords
 	#QMAKE_CXXFLAGS += $$system(pkg-config gtk+-3.0 --cflags --libs)
 } else:win32 {
-	DISTFILES += \
-		src/linux/linuxwm.hpp \
-		src/linux/linuxwm.cpp \
-		src/linux/gnomewm.hpp \
-		src/linux/gnomewm.cpp \
+	HEADERS += $${WINDOWS_HEADERS}
+
+	SOURCES += $${WINDOWS_SOURCES}
+
+	DISTFILES += $${LINUX_HEADERS} $${LINUX_SOURCES}
 }
 
 # Additional import path used to resolve QML modules in Qt Creator's code model

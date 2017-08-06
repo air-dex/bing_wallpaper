@@ -4,10 +4,15 @@
 #include <QSettings>
 #include "wallpapermanager.hpp"
 
+/// @class SystemManager
+/// @brief Entity managing OS-related stuff
 class SystemManager
 {
 	public:
 		SystemManager();
+		virtual ~SystemManager();
+
+		void setDefaultWallpaper();
 
 	protected:
 		WallpaperManager * wm;

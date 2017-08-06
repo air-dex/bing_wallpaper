@@ -7,10 +7,23 @@
 #include <QUrl>
 #include <QUrlQuery>
 
+#include "systemmanagerbuilder.hpp"
+
 QString ActionController::DATE_FORMAT = "yyyyMMdd";
 int ActionController::ONE_SECOND_TIMER = 1000;
 
-ActionController::ActionController() : QObject(), timeoutTimerID(0) {}
+ActionController::ActionController() :
+	QObject(),
+	os(SystemManagerBuilder::getSystemManager()),
+	timeoutTimerID(0)
+{}
+
+ActionController::~ActionController()
+{
+	if (os) {
+		delete os;
+	}
+}
 
 void ActionController::declareQML() {
 	// @uri BWControls
@@ -27,6 +40,7 @@ void ActionController::downloadImage() {
 
 void ActionController::setImageAsWallpaper() {
 	// TODO
+	os->setDefaultWallpaper();
 }
 
 void ActionController::getImageMetaData(QDateTime date, QString countryCode) {

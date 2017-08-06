@@ -6,6 +6,7 @@
 #include <QString>
 #include <QNetworkReply>
 #include <QJsonObject>
+#include "systemmanager.hpp"
 
 class ActionController : public QObject
 {
@@ -13,6 +14,7 @@ class ActionController : public QObject
 
 	public:
 		ActionController();
+		~ActionController();
 
 		static void declareQML();
 
@@ -33,6 +35,9 @@ class ActionController : public QObject
 	protected:
 		static QString DATE_FORMAT;
 		static int ONE_SECOND_TIMER;
+
+		/// @brief Operating System contact
+		SystemManager * os;
 
 		// Timeout timer management
 		int timeoutTimerID;
