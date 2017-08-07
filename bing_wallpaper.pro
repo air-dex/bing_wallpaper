@@ -12,7 +12,7 @@ CONFIG += c++11
 include(src/sources.pri)
 
 # QML sources
-include(qml/qml.pri)
+include(qml.pri)
 
 # Resources
 include(res/res.pri)
@@ -20,11 +20,7 @@ include(res/res.pri)
 DISTFILES += \
 	.gitignore \
 	README.md \
-	LICENSE \
-	js/sprintf.js \
-	js/sprintf-wrapper.js \
-	src/windows/.gitkeep \
-	src/linux/.gitkeep
+	LICENSE
 
 
 # Plateform specific

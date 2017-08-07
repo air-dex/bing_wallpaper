@@ -1,5 +1,9 @@
 # QML sources
 
+JS_FILES = \
+	js/sprintf.js \
+	js/sprintf-wrapper.js
+
 QML_FILES = \
 	qml/main.qml \
 	qml/BWMenuBar.qml \
@@ -14,7 +18,9 @@ QML_FILES = \
 	qml/Constants.qml \
 	qml/BWCalendarImage.qml
 
-DISTFILES += $${QML_FILES}
+DISTFILES += \
+	$${JS_FILES} \
+	$${QML_FILES}
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
