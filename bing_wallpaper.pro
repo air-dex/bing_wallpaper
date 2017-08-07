@@ -8,6 +8,9 @@ QT += qml quick
 
 CONFIG += c++11
 
+# Private variables
+include(bing_wallpaper.priv.pri)
+
 # C++ sources
 include(src/sources.pri)
 
@@ -20,8 +23,11 @@ include(res/res.pri)
 DISTFILES += \
 	.gitignore \
 	README.md \
-	LICENSE
+	LICENSE \
+	bing_wallpaper.priv.pri.sample
 
+# Extra makefile targets
+include(extratargets.pri)
 
 # Plateform specific
 linux: {

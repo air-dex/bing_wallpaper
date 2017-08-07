@@ -1,4 +1,5 @@
 *.pro.user
+bing_wallpaper.priv.pri
 bin/debug/*
 !bin/debug/.gitkeep
 bin/release/*

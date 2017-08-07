@@ -1,0 +1,13 @@
+# qmake variables depending on your dev machine
+
+# Path to a Python 3 interpretor, needed for extra targets
+PYTHON3_CMD=python
+
+# Path to a Doxygen executable. Needed for generating documentation.
+DOXYGEN_CMD=doxygen
+
+# Path to lupdate. Needed for translation
+LUPDATE_CMD=lupdate
+
+# Path to lrelease. Needed for translation
+LRELEASE_CMD=lrelease
