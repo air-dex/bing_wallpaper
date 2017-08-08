@@ -20,14 +20,21 @@ include(qml.pri)
 # Resources
 include(res/res.pri)
 
+# Extra makefile targets
+include(extratargets.pri)
+
+# Documentation stuff
+include(doc/doc.pri)
+
+# Translation stuff
+# TODO
+# include(i18n/i18n.pri)
+
 DISTFILES += \
 	.gitignore \
 	README.md \
 	LICENSE \
 	bing_wallpaper.priv.pri.sample
-
-# Extra makefile targets
-include(extratargets.pri)
 
 # Plateform specific
 linux: {

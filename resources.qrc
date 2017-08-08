@@ -23,5 +23,6 @@
 		<file alias="flag-us.svg">res/flags/United_States.svg</file>
 		<file alias="jslib-sprintf.js">js/sprintf.js</file>
 		<file alias="js-sprintf.js">js/sprintf-wrapper.js</file>
+		<file alias="app-logo">res/logo.svg</file>
 	</qresource>
 </RCC>

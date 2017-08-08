@@ -1,16 +1,11 @@
 # Extra makefile targets
 
-# TODO : see reyn-tests on Github for examples
+# NOTE: see reyn-tests on Github for examples
 
-PYTHON_SCRIPT_CMD = $${PYTHON3_EXEC} $$system_path($${PWD}/extratargetscripts.py)
+PYTHON_SCRIPT_CMD = $${PYTHON3_CMD} $$system_path($${PWD}/extratargets.py)
+PROJECT_ROOT = $$shell_path($${PWD}/)
 
 # Proper build clean (i.e. do not erase .gitkeep files)
-# TODO
-
-# Generate documentation
-# TODO
-
-# Clean documentation
 # TODO
 
 # I18n lupdate

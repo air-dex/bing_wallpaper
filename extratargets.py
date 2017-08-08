@@ -1,14 +1,49 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import shutil
+import os
+import os.path as ospath
 from sys import argv as argz
+
+# Project paths
+
+# Project root (also where the script is)
+projectpath = os.getcwd()
+
+# Binaries
+binpath = ospath.join(projectpath, "bin")
+
+# Documentation
+docpath = ospath.join(projectpath, "doc")
+
+# Translations
+trpath = ospath.join(projectpath, "i18n")
+
+#----------------#
+# Tool functions #
+#----------------#
+
+# TODO (if necessary)
+
+#--------------------#
+# Actions to realize #
+#--------------------#
+
+def cleanDoc():
+	"""Cleaning generated documentation"""
+	shutil.rmtree(ospath.join(docpath, "html"), ignore_errors=True)
+# End cleandoc()
+
+actionz = {
+	"cleanDoc": cleanDoc
+}
+
+# TODO
 
 #------#
 # Main #
 #------#
-
-actionz = {
-}
 
 def main():
 	"""Main"""

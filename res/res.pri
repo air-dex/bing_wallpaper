@@ -1,6 +1,7 @@
 # Resources
 
 ASSETS_FILES += \
+	res/logo.svg \
 	res/flags/Australia.svg \
 	res/flags/Canada.svg \
 	res/flags/China.svg \
